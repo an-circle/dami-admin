@@ -1,0 +1,33 @@
+
+<div class="container containers">
+   <form name="f" ng-submit="onSubmit(f.$valid)" class="formSubmit"  novalidate>
+   <legend>{{action}}</legend>
+
+   	<div class="form-group has-feed-back" ng-class="{'has-error':f.uname.$dirty && f.uname.$invalid }">
+   		<label for="name">用户名</label>
+   		<input type="text" class="form-control" id="name" ng-model="user.name" name="uname" required pattern="[a-zA-Z0-9]{6,15}">
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="f.uname.$dirty && f.uname.$invalid"></span>
+        <span class="help-block" ng-show="f.uname.$dirty && f.uname.$error.required">请输入用户名</span>
+
+
+        <span class="help-block"  ng-show="f.uname.$dirty && f.uname.$error.pattern">请输入6-15位字母数字混合用户名</span>
+   	</div>
+
+       <div class="form-group">
+           <label for="role" class="col-sm-2 control-label">用户角色</label>
+
+           <select class="form-control" id="role" ng-model="user.role">
+               <option value="admin">管理员</option>
+               <option value="user">普通用户</option>
+
+           </select>
+
+       </div>
+
+
+       <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+
+
+
+</div>
